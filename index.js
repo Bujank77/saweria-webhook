@@ -9,13 +9,12 @@ app.post("/webhook", async (req, res) => {
     console.log("DONATION RECEIVED:");
     console.log(JSON.stringify(req.body, null, 2));
 
-    latestDonation = {
-        id: req.body.id || Date.now().toString(),
-        name: req.body.donator_name || "Unknown",
-        amount: req.body.amount_raw || 0,
-        message: req.body.message || "",
-        timestamp: Date.now()
-    };
+   latestDonation = { id: Date.now().toString(),
+                     name: req.body.donator_name || "Unknown",
+                     amount: req.body.amount_raw || 0,
+                     message: req.body.message || "", 
+                     timestamp: Date.now()
+                    };
 
     res.sendStatus(200);
 });
